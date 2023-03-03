@@ -141,3 +141,4 @@ alias g=git
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 bindkey -v
+eval "$(starship init zsh)"
