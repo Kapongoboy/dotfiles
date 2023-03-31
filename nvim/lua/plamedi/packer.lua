@@ -1,20 +1,8 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-local ensure_packer = function ()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data') ..
-    '/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({
-      'git', 'clone', '--depth', '1',
-      'https://github.com/wbthomason/packer.nvim', install_path
-    })
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+
 -- Only required if you have packer configured as `opt`
-local packer_bootstrap = ensure_packer()
+vim.cmd [[packadd packer.nvim]]
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -103,5 +91,13 @@ use {"lewis6991/gitsigns.nvim"}
 
 -- install without yarn or npm
 
-use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+use({ "iamcco/markdown-preview.nvim", 
+    run = function() vim.fn["mkdp#util#install"]() end,})
+
+use {'Exafunction/codeium.vim'}
+use {"EdenEast/nightfox.nvim"}
+use {"folke/tokyonight.nvim"}
+use {"marko-cerovac/material.nvim"}
+use {"tjdevries/colorbuddy.nvim"}
+use {"lervag/vimtex"}
   end)
