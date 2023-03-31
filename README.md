@@ -3,5 +3,5 @@
 Neovim 
 ![neovim screenshot](./images/neovim.png)
 
-Tmux in alacritty
+Tmux session in alacritty
 ![tmux alacritty](./images/tmux_alacritty.png)
