@@ -100,4 +100,6 @@ use {"folke/tokyonight.nvim"}
 use {"marko-cerovac/material.nvim"}
 use {"tjdevries/colorbuddy.nvim"}
 use {"lervag/vimtex"}
+use {"sainnhe/gruvbox-material"}
+use {"habamax/vim-godot"}
   end)

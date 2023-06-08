@@ -11,6 +11,9 @@
 import:
 #  - /path/to/alacritty.yml
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/themes/themes/tokyo-night.yaml
+  # - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml
+  # - ~/.config/alacritty/dirty/dirty.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
@@ -28,7 +31,7 @@ env:
   TERM: xterm-256color
 
 window:
-  opacity: 0.7
+  opacity: 0.75
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns

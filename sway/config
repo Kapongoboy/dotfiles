@@ -6,8 +6,8 @@ exec gammastep
 font pango:hack Nerd Font 12px 
 default_border pixel 1
 titlebar_border_thickness 1
-gaps outer 5
-gaps inner 5
+gaps outer 1
+gaps inner 1
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border
@@ -29,7 +29,10 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
     floating enable
 }
 # Window rules
-
+for_window [class="VLC media player"] mark video_player
+for_window [con_mark="video_player"] {
+        inhibit_idle fullscreen
+    }
 # pulseaudio controls
 
 for_window [app_id="pavucontrol"] {
@@ -42,9 +45,8 @@ for_window [app_id="pavucontrol-qt"] {
     move position center
 }
 
-for_window [workspace="2"] layout tabbed
-for_window [workspace="4"] layout tabbed
-for_window [workspace="5"] layout tabbed
+for_window [class="Godot_Engine" window_role="pop-up"] floating enable
+
 for_window [app_id="ncmpcpp"] floating enable, resize set height 400 px, resize set width 800 px, move position 1080 5
 for_window [app_id="cava"] floating enable, resize set height 400 px, resize set width 800px, move position 5 590
 for_window [app_id="libera"] floating enable, resize set height 500 px, resize set width 900px, move position 980 5
@@ -104,7 +106,7 @@ set $menu wofi --hide-scroll | xargs swaymsg exec --
 # Default wallpaper 
 # output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
 # can replace $Home with your user specific home directory
-output * bg /home/plamedi/Pictures/wallpapers/5371426.jpg fill 
+output * bg /home/plamedi/Pictures/wallpapers/in_the_mood_1.webp fill 
 
 # Behavior
 focus_follows_mouse yes
@@ -115,8 +117,8 @@ focus_follows_mouse yes
 #
 
 exec swayidle -w \
-         timeout 300 'swaylock -f' \
-         timeout 600 'swaymsg "output * dpms off"'\
+         timeout 600 'swaylock -f' \
+         timeout 900 'swaymsg "output * dpms off"'\
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f' \
 

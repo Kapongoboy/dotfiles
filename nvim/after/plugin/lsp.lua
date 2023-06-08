@@ -43,23 +43,16 @@ vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 vim.keymap.set("i", "C-h", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
--- vim.lsp.diagnostic.on_publish_diagnostic, {
---   underline = true,
---   update_in_insert = false,
---   virtual_text = { spacing = 4, prefix = "●"},
---   severity_sort = true,
--- }
--- )
---
--- vim.diagnostic.config({
---   virtual_text = {
---     prefix = '●'
---   },
---   update_in_insert = true,
---   float = {
---     source = "always", --Or "if many"
---   },
--- })
---
+
+vim.diagnostic.config({
+  virtual_text = {
+	spacing = 4,
+    prefix = '●'
+  },
+  update_in_insert = true,
+  float = {
+    source = "always", --Or "if many"
+  },
+})
+
 lsp.setup()

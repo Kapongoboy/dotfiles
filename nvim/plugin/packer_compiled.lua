@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -270,6 +275,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-godot"] = {
+    loaded = true,
+    path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/vim-godot",
+    url = "https://github.com/habamax/vim-godot"
   },
   vimtex = {
     loaded = true,
