@@ -47,28 +47,15 @@ for_window [app_id="pavucontrol-qt"] {
 
 for_window [class="Godot_Engine" window_role="pop-up"] floating enable
 
-for_window [app_id="ncmpcpp"] floating enable, resize set height 400 px, resize set width 800 px, move position 1080 5
-for_window [app_id="cava"] floating enable, resize set height 400 px, resize set width 800px, move position 5 590
-for_window [app_id="libera"] floating enable, resize set height 500 px, resize set width 900px, move position 980 5
-for_window [app_id="tilde"] floating enable, resize set height 500 px, resize set width 900px, move position 5 490
-for_window [app_id="low-key"] floating enable, resize set height 400 px, resize set width 800px, move position 220 150
-for_window [app_id="veracrypt"] floating enable
 
 # Assignments
 assign [app_id="firefox"] 2
 assign [app_id="Discord"] 4
 assign [app_id="Visual Studio Code"] 3
-assign [app_id="tilde"] 6
-assign [app_id="low-key"] 6
 assign [app_id="telegramdesktop"] 4
-assign [class="Signal Beta"] 4
 assign [app_id="org.pwmt.zathura"] 5
 assign [class="Gimp-2.10"] 7
 assign [class="Krita"] 7
-assign [app_id="audacity"] 8
-assign [app_id="audacity"] 8
-assign [app_id="ncmpcpp"] 10
-assign [app_id="cava"] 10
 
 # Keybindings
 
@@ -106,7 +93,7 @@ set $menu wofi --hide-scroll | xargs swaymsg exec --
 # Default wallpaper 
 # output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
 # can replace $Home with your user specific home directory
-output * bg /home/plamedi/Pictures/wallpapers/in_the_mood_1.webp fill 
+output * bg /home/plamedi/Pictures/aesthetic-anime-street.jpg
 
 # Behavior
 focus_follows_mouse yes
