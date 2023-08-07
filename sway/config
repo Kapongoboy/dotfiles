@@ -93,7 +93,7 @@ set $menu wofi --hide-scroll | xargs swaymsg exec --
 # Default wallpaper 
 # output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
 # can replace $Home with your user specific home directory
-output * bg /home/plamedi/Pictures/aesthetic-anime-street.jpg
+output * bg /home/plamedi/Pictures/snow_land_zoom.jpg fill
 
 # Behavior
 focus_follows_mouse yes
@@ -146,7 +146,7 @@ bindsym Shift+print exec grim -g "$(slurp)" - | swappy -f -
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
-
+bindsym $mod+e nautilus
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t custom -m 'Do you wish to fully reload your Sway session?' -b 'Yes' 'swaymsg exit'
 # Turn the system off
@@ -248,10 +248,10 @@ bindsym $mod+alt+$down resize shrink height 20px
 bindsym $mod+alt+$right resize grow width 20px
 
 ## Special keys
-bindsym --locked XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 45 false ; pactl set-sink-volume 45 +5%" && notify-send " Volume" "Volume: $(pactl list sinks | grep '^[[:space:]]Volume:' | \
-    head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')%"
-bindsym --locked XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 45 false ; pactl set-sink-volume 45 -5%" && notify-send " Volume" "Volume: $(pactl list sinks | grep '^[[:space:]]Volume:' | \
-    head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')%"
+bindsym --locked XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 45 false ; pactl set-sink-volume 45 +5%" 
+
+bindsym --locked XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 45 false ; pactl set-sink-volume 45 -5%"
+
 bindsym --locked XF86AudioMute exec pactl set-sink-mute 45 toggle && notify-send " Mute" "Mic mute toggled"
 bindsym XF86MonBrightnessUp exec light -A 10 && notify-send "󰃞 Light" "Brightness: $(light)%" --hint="int:value:$(light)"
 bindsym XF86MonBrightnessDown exec light -U 10 && notify-send "󰃞 Light" "Brightness: $(light)%" --hint="int:value:$(light)"
