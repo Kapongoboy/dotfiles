@@ -125,6 +125,11 @@ _G.packer_plugins = {
     path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  darcula = {
+    loaded = true,
+    path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/darcula",
+    url = "https://github.com/doums/darcula"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/plamedi/.local/share/nvim/site/pack/packer/start/friendly-snippets",

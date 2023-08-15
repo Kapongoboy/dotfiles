@@ -102,4 +102,7 @@ use {"tjdevries/colorbuddy.nvim"}
 use {"lervag/vimtex"}
 use {"sainnhe/gruvbox-material"}
 use {"habamax/vim-godot"}
+
+use {"doums/darcula"}
+
   end)
