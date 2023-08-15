@@ -10,3 +10,4 @@ vim.g.loaded_netrwPlugin = 1
 require("plamedi.remap")
 require("plamedi.packer")
 require("plamedi.set")
+require("plamedi.highlights")

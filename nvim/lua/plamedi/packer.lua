@@ -145,4 +145,12 @@ use({
 })
 use {'nvim-treesitter/nvim-treesitter-refactor'}
 
+-- takuya inspired stuff
+use {"onsails/lspkind.nvim"}
+
+-- telescope extension
+use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+}
   end)
