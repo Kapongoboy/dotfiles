@@ -1,7 +1,7 @@
 function ColorMyPencils(color)
-	-- color = color or "kanagawa-wave"
+	color = color or "kanagawa-wave"
 	-- color = color or "catppuccin"
-    color = color or "darcula"
+    -- color = color or "darcula"
 	-- color = color or "gruvbox"
 	-- color = color or "gruvbox-material"
 	-- color = color or "rose-pine"
