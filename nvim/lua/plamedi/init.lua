@@ -4,7 +4,7 @@
 -- catppuccin.setup()
 -- vim.cmd[[colorscheme catppuccin]]
 --
-vim.cmd[[colorscheme gruvbox]]
+vim.cmd[[colorscheme darcula]]
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 require("plamedi.remap")

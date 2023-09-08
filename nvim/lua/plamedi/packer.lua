@@ -65,10 +65,8 @@ use {
     end
 }
 use "rebelot/kanagawa.nvim"
-use {
-  'svrana/neosolarized.nvim',
-  requires = { 'tjdevries/colorbuddy.nvim'}
-}
+
+use { 'svrana/neosolarized.nvim'}
 
 use {
   "folke/trouble.nvim",
@@ -153,4 +151,13 @@ use {
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 }
+
+-- different darcula
+use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+-- If you are using Packer
+use {'shaunsingh/nord.nvim'}
+
+-- use {"nikolvs/vim-sunbather"}
+--
+-- use {"danishprakash/vim-yami"}
   end)
