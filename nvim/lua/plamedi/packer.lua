@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -151,12 +151,15 @@ use {
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 }
-
+use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 -- different darcula
 use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 -- If you are using Packer
 use {'shaunsingh/nord.nvim'}
 
+use {"rigellute/shades-of-purple.vim"}
+
+use {'archseer/colibri.vim'}
 -- use {"nikolvs/vim-sunbather"}
 --
 -- use {"danishprakash/vim-yami"}
