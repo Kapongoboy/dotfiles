@@ -20,7 +20,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # Style
 font pango:hack Nerd Font 12px 
-default_border pixel 1
+default_border pixel 2
 smart_borders on
 gaps outer 1
 gaps inner 1
@@ -124,7 +124,8 @@ set $menu wofi -c ~/.config/wofi/config -I
 # Default wallpaper 
 # output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
 # can replace $Home with your user specific home directory
-output * bg /home/plamedi/Pictures/wallpapers/5371426.jpg fill
+output * bg /home/plamediluis/Pictures/wallpapers/in_the_mood_1.webp fill
+
 
 # Behavior
 focus_follows_mouse yes
