@@ -120,7 +120,7 @@ function git-svn(){
 }
 
 function re(){
-    cd ~/Documents/repos/
+    cd ~/Documents/repos
 }
 
 function ded(){

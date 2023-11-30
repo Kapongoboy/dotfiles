@@ -1,7 +1,7 @@
 ##
 ## Aliases
 ##
-alias pls='sudo dnf install'
+alias pls='sudo pacman -S --needed'
 alias _='sudo'
 alias v='nvim'
 alias run='pnpm run'
