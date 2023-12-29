@@ -160,6 +160,8 @@ use {'shaunsingh/nord.nvim'}
 use {"rigellute/shades-of-purple.vim"}
 
 use {'archseer/colibri.vim'}
+
+use {'luisiacc/gruvbox-baby'}
 -- use {"nikolvs/vim-sunbather"}
 --
 -- use {"danishprakash/vim-yami"}
