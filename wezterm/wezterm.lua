@@ -10,8 +10,9 @@ local font_name = "Hack Nerd Font"
 return {
 	-- OpenGL for GPU acceleration, Software for CPU
 	front_end = "OpenGL",
+    animation_fps = 60,
 
-	color_scheme = 'Catppuccin Mocha',
+	color_scheme = 'Gruvbox dark, hard (base16)',
 
 	-- Font config
 	font = font_with_fallback(font_name),
@@ -158,7 +159,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = 0.7,
+	window_background_opacity = 0.85,
 	window_close_confirmation = "NeverPrompt",
   window_frame = { active_titlebar_bg = "#45475a", font = font_with_fallback(font_name, { bold = true }) },
 }
