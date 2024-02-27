@@ -1,6 +1,6 @@
 # Plamedi's dotfiles
 
-## notes
+## NOTE the main branch is behind all the others, and includes deprecated parts, most significantly the neovim config. the 2024 branch is recommended for now, before a merge is completed and the old configs are put on a legacy branch
 
 - Before sourcing the .zshenv file, place the zsh folder into your $HOME/.config/ path. 
 
