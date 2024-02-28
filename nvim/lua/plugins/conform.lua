@@ -6,9 +6,8 @@ return {
       formatters_by_ft = {
         lua = {"stylua"},
         python = {"isort", "black"},
-        javascript = {{"prettiered", "prettier"}},
-        c = {"clang-tidy"},
-        cpp = {"clang-tidy"},
+        javascript = {{"prettierd", "prettier"}},
+        cpp = {"cpplint"},
       },
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",

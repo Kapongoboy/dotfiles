@@ -1,5 +1,4 @@
-vim.cmd([[colorscheme habamax]])
+-- vim.cmd[[colorscheme solarized-osaka]]
 require("plamedi.set")
 require("plamedi.highlights")
 require("plamedi.remap")
-vim.opt.termguicolors = true
