@@ -1,5 +1,5 @@
 # just updating quick
-sudo pacman -Syu
+sudo dnf update
 #
 # getting rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -11,7 +11,7 @@ curl https://get.volta.sh | bash
 curl -sS https://starship.rs/install.sh | sh
 
 # some needed packages
-sudo pacman -S --needed gitui fish git make cmake ninja python-pip ripgrep fzf fd
+sudo dnf install gitui fish git make cmake ninja python-pip ripgrep fzf fd
 
 # copy fish to config
 cp -r fish ~/.config/
