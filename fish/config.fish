@@ -15,6 +15,7 @@ if status is-interactive
     abbr -a re cd ~/Repos
     abbr -a q exit
     abbr -a pls sudo pacman -S --needed
+    abbr -a op xdg-open
     # abbr -a pvs source ~/Documents/repos/pocket/yolov7/venv/bin/activate.fish
     fish_vi_key_bindings
 
