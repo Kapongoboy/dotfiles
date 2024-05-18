@@ -120,7 +120,7 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack Nerd Font
+    family: Hasklug Nerd Font Mono
     style:  Regular
     # Font family
     #
@@ -135,7 +135,7 @@ font:
 
   # Bold font face
   bold:
-    family: Hack Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Bold
     # Font family
     #
@@ -148,7 +148,7 @@ font:
 
   # Italic font face
   italic:
-    family: Hack Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Italic
     # Font family
     #
@@ -161,7 +161,7 @@ font:
 
   # Bold italic font face
   bold_italic:
-    family: Hack Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Bold Italic
     # Font family
     #
@@ -451,7 +451,7 @@ font:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/bin/zsh
+  program: /usr/bin/fish
 
 
 # Startup directory

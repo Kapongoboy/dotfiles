@@ -54,6 +54,8 @@ require("mason-lspconfig").setup({
 	},
 })
 
+require("lspconfig").gleam.setup({})
+
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
@@ -82,6 +84,4 @@ vim.diagnostic.config({
 	},
 })
 
-if vim.lsp.inlay_hint then
-	vim.lsp.inlay_hint.enable(0, true)
-end
+-- vim.lsp.inlay_hint.enable(true)
