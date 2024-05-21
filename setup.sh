@@ -11,7 +11,7 @@ curl https://get.volta.sh | bash
 curl -sS https://starship.rs/install.sh | sh
 
 # some needed packages
-# sudo $1 gitui fish git make cmake ninja python-pip ripgrep fzf fd
+# sudo $1 gitui fish git make cmake ninja python-pip ripgrep fzf fd lsd bat
 
 # copy fish to config
 cp -r fish ~/.config/

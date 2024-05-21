@@ -8,4 +8,4 @@ curl -fsSL https://bun.sh/install | bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # get clang and gcc and last release zig
-sudo dnf install gcc clang bear zig
+sudo dnf install gcc clang bear 

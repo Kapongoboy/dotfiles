@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 -- config.color_scheme = "Atelierdune (dark) (terminal.sexy)"
 config.font = wezterm.font_with_fallback({
 	{
-		family = "Zed Mono",
+		family = "IosevkaTerm Nerd Font Mono",
 		weight = "DemiBold",
 	},
 	{
