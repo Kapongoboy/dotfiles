@@ -11,7 +11,7 @@ curl https://get.volta.sh | bash
 curl -sS https://starship.rs/install.sh | sh
 
 # some needed packages
-# sudo $1 gitui fish git make cmake ninja python-pip ripgrep fzf fd lsd bat
+sudo dnf install gitui fish git make cmake ninja python-pip ripgrep fzf fd lsd bat tmux gcc clang bear 
 
 # copy fish to config
 cp -r fish ~/.config/
@@ -20,7 +20,7 @@ cp -r fish ~/.config/
 cp -r gitui ~/.config/
 
 # change fish to default
-chsh -s /usr/bin/fish
+# chsh -s /usr/bin/fish
 
 # setup tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -28,4 +28,4 @@ cp .tmux.conf ~/
 tmux source-file .tmux.conf
 
 # enter fish
-fish
+# fish
