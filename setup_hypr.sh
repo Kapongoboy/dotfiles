@@ -1,5 +1,5 @@
 # packages on fedora
-sudo dnf install hyprland hyprlang hyprlang-devel hyprland-devel brightnessctl polkit-gnome waybar swaybg wofi pulseaudio-utils playerctl grim swappy slurp mako wayland-protocols-devel sdbus-cpp-devel 
+sudo dnf install hyprland hyprlang hyprlang-devel hyprland-devel brightnessctl polkit-gnome waybar swaybg wofi pulseaudio-utils playerctl grim swappy slurp mako wayland-protocols-devel sdbus-cpp-devel wlsunset
 
 # hypr plugins setup
 
