@@ -23,11 +23,38 @@ style = "Regular"
 [shell]
 program = "/usr/bin/fish"
 
-[window]
-decorations = "full"
-opacity = 1.0
 
 [window.padding]
 x = 10
 y = 10
 
+# Default colors
+[colors.primary]
+background = '#041419'
+foreground = '#697A82'
+
+# Normal colors
+[colors.normal]
+black   = '#163541'
+red     = '#CB4239'
+green   = '#89982E'
+yellow  = '#AE8B2D'
+blue    = '#4689CC'
+magenta = '#C34480'
+cyan    = '#519F98'
+white   = '#FCF6E5'
+
+# Bright colors
+[colors.bright]
+black   = '#A1ACAD'
+red     = '#F1A19E'
+green   = '#DEFEB5'
+yellow  = '#FBEAA3'
+blue    = '#B4DBFC'
+magenta = '#EE7FB7'
+cyan    = '#C8FDF9'
+white   = '#FFFFFF'
+
+[window]
+decorations = "full"
+opacity = 0.7
