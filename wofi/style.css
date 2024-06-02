@@ -2,10 +2,10 @@
 Arc-Dark Color Scheme
 */
 
-@define-color highlight #458588;
-@define-color base1  #282828;
-@define-color base2 #3c3836;
-@define-color base3  #504955;
+@define-color highlight #A83128;
+@define-color base1  #041419;
+@define-color base2 #0E2A35;
+@define-color base3  #163541;
 
 *{
     font-family: Hack Nerd Font Mono;
@@ -35,7 +35,7 @@ window {
 
 #text {
     padding: 5px;
-    color: white;
+    color: #EDE8D7;
 }
 
 #entry:nth-child(even) {

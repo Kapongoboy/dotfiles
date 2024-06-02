@@ -44,6 +44,7 @@ linux-firmware
 lsd
 mako
 man-db
+mlocate
 mpv
 nano
 neovim
@@ -54,6 +55,8 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+otf-font-awesome
+pacman-contrib
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -71,12 +74,15 @@ smartmontools
 swappy
 swaybg
 tmux
+ttc-iosevka
+ttf-hack-nerd
 ttf-iosevkaterm-nerd
 unzip
 vim
 vulkan-intel
 vulkan-radeon
 waybar
+wf-recorder
 wget
 wireless_tools
 wireplumber
