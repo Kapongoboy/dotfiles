@@ -4,6 +4,7 @@ return {
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "maxmx03/solarized.nvim" },
 	{ "luisiacc/gruvbox-baby" },
+  { "tjdevries/colorbuddy.nvim", },
 	{
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
