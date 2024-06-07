@@ -2,16 +2,16 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
--- config.color_scheme = "Atelierdune (dark) (terminal.sexy)"
+config.color_scheme = "Ayu Dark (Gogh)"
 config.font = wezterm.font_with_fallback({
-	{
-		family = "IosevkaTerm Nerd Font Mono",
-		weight = "DemiBold",
-	},
 	{
 		family = "JetBrains Mono",
 		weight = "DemiBold",
 		harfbuzz_features = { "calt", "clig", "liga" },
+	},
+	{
+		family = "IosevkaTerm Nerd Font Mono",
+		weight = "DemiBold",
 	},
 	{
 		family = "Hasklug Nerd Font Mono",
