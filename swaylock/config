@@ -5,7 +5,7 @@ indicator-caps-lock
 # datestr=%A
 image=$HOME/Pictures/lea-pinto-wall-of-memories-lea-pinto-1.jpg
 scaling=fill
-font=UbuntuMono
+font=Cantarell
 font-size=20
 
 # Ring
