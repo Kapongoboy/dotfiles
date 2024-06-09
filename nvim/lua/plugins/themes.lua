@@ -5,6 +5,16 @@ return {
 	{ "maxmx03/solarized.nvim" },
 	{ "luisiacc/gruvbox-baby" },
   { "tjdevries/colorbuddy.nvim", },
+  {"sainnhe/gruvbox-material"},
+  {"rebelot/kanagawa.nvim"},
+  {"shaunsingh/nord.nvim"},
+  {"marko-cerovac/material.nvim"},
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 	{
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
