@@ -2,10 +2,16 @@
 sudo dnf install hyprland hyprlang hyprlang-devel hyprland-devel brightnessctl polkit-gnome waybar swaybg wofi pulseaudio-utils playerctl grim swappy slurp mako wayland-protocols-devel sdbus-cpp-devel wlsunset
 
 # hypr plugins setup
-
+gh repo clone hyprwm/hyprutils
 gh repo clone hyprwm/hypridle
 gh repo clone hyprwm/hyprlock
 gh repo clone hyprwm/hyprpaper
+
+cd hyprutils
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+cmake --build ./build --config Release --target all -j4
+sudo cmake --install build
+cd ../
 
 cd hypridle
 cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -S . -B ./build
