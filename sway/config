@@ -15,6 +15,20 @@ exec wlsunset -l 25.7 -L 28.2
 # Network Applet
 exec nm-applet --indicator
 
+# Autotiling for sway
+exec /home/plamedi/Repos/pocket/autotiling-rs/target/release/autotiling-rs
+
+# swayest
+exec /home/plamedi/Repos/pocket/swayest_workstyle/target/release/sworkstyle &> /tmp/sworkstyle.log
+
+# explicit setting of bg
+exec swaybg -i ~/Pictures/i-see-you.jpg -m fill
+
+# swaymsg 'output * bg $background fill'
+
+# flashfocus
+exec flashfocus
+
 # GTK3 applications take a long time to start
 # exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 # exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -30,25 +44,25 @@ gaps inner 1
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border
-client.focused          #c49ec4 #262626 #f0f0f0 #9ec3c4   #c49ec4
-client.focused_inactive #c49ec4 #262626 #f0f0f0 #9ec3c4   #c49ec4
-client.unfocused        #c49ec4 #0f0f0f #f0f0f0 #9ec3c4   #4c4c4c
-client.urgent           #c49ec4 #c49ec4 #0f0f0f #9ec3c4   #c49ec4
+client.focused          #2980b9 #262626 #f0f0f0 #9ec3c4   #2980b9
+client.focused_inactive #CCCFFB #262626 #f0f0f0 #9ec3c4   #CCCFFB
+client.unfocused        #90b1b1 #0f0f0f #f0f0f0 #9ec3c4   #90b1b1
+client.urgent           #EE7FB7 #c49ec4 #0f0f0f #9ec3c4   #EE7FB7
 
 # Import GTK settings
 # exec_always ~/.config/sway/scripts/import-gsettings
 
 # Assign workspaces
-assign [app_id="firefox"] 2
+assign [app_id="firefox"] number 2
 for_window [app_id="firefox"] focus
 
-assign [class="firefox"] 2
+assign [class="firefox"] number 2
 for_window [class="firefox"] focus
 
-assign [app_id=thunar] 3
+assign [app_id=thunar] number 3
 for_window [app_id=thunar] focus
 
-assign [class="Telegram"] 4
+assign [class="Telegram"] number 4
 for_window [class="Telegram"] focus
 
 
@@ -56,40 +70,65 @@ for_window [app_id="xed"] focus
 
 
 # set floating (nontiling)for apps needing it:
-for_window [class="Yad" instance="yad"] floating enable
-for_window [app_id="yad"] floating enable
-for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
-
+# for_window [class="Yad" instance="yad"] floating enable
+# for_window [app_id="yad"] floating enable
 # set floating (nontiling) for special apps:
-for_window [class="Xsane" instance="xsane"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
-for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [app_id="pamac-manager"] floating enable, resize set width 80 ppt height 70 ppt
-for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
+# for_window [class="Xsane" instance="xsane"] floating enable
+# for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
+# for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+# for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+# for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
 
 # set floating for window roles
+# for_window [window_role="pop-up"] floating enable
+# for_window [window_role="bubble"] floating enable
+# for_window [window_role="task_dialog"] floating enable
+# for_window [window_role="Preferences"] floating enable
+# for_window [window_type="dialog"] floating enable
+# for_window [window_type="menu"] floating enable
+# for_window [window_role="About"] floating enable
+# for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+# for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+# for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+# for_window [title="Picture in picture"] floating enable, sticky enable
+# for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+# for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+# for_window [app_id="xsensors"] floating enable
+# for_window [title="Save File"] floating enable
+# for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+
+
+# don't show gaps if there's only one window on the desktop
+smart_gaps on
+
+# set floating mode for generated windows
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] resize set 800 600
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [window_role="About"] floating enable
-for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [title="Picture in picture"] floating enable, sticky enable
-for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
-for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+
+# set floating mode for specific applications
+for_window [instance="lxappearance"] floating enable
+for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable
+for_window [app_id="thunderbird" title=".*Reminder"] floating enable
+for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
+for_window [app_id="" title="Picture in picture"] floating enable, sticky enable
+for_window [app_id="" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [instance="around"] floating enable, sticky enable
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+for_window [title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
+for_window [app_id="" title=".* is sharing your screen."] floating enable
+for_window [title="^wlay$"] floating enable
+for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
 
 # Inhibit idle
-for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [app_id="Chromium"] inhibit_idle fullscreen
-
+# for_window [app_id="firefox"] inhibit_idle fullscreen
+# for_window [app_id="Chromium"] inhibit_idle fullscreen
 
 # Keybindings
 
@@ -130,8 +169,8 @@ set $menu wofi -c ~/.config/wofi/config -I
 # Default wallpaper 
 # output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
 # can replace $Home with your user specific home directory
-output * bg /home/plamedi/Pictures/i-see-you.jpg fill
-
+# output * bg /home/plamedi/Pictures/so-blue.jpg fill
+exec way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1
 
 # Behavior
 focus_follows_mouse yes
@@ -142,12 +181,31 @@ focus_follows_mouse yes
 #
 
 ### Idle configuration
-exec swayidle -w\
-    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
-    timeout 770 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -C ~/.config/swaylock/config'
+# exec swayidle -w\
+#     timeout 770 'swaylock -f -C ~/.config/swaylock/config'\
+#     timeout 1070 'swaymsg "output * power off"' \
+#     resume 'swaymsg "output * power on"' \
+#     before-sleep 'swaylock -C ~/.config/swaylock/config'
 
+set $locking swaylock -f -C ~/.config/swaylock/config
+set $idle_timeout 240
+set $locking_timeout 300
+set $screen_timeout 600
+set $screen_timeout_bat 900
+set $screen_time_ac 3600
+set $sleep_delay 2
+
+exec swayidle -w \
+    timeout $idle_timeout 'brightnessctl -s && brightnessctl set 10' \
+    resume 'brightnessctl -r' \
+    timeout $locking_timeout 'exec $locking' \
+    timeout $screen_timeout  'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    timeout $sleep_timeout_bat '[ "$(acpi -b | grep Discharging)" != "" ] && systemctl suspend' \
+    timeout $sleep_timeout_ac '[ "$(acpi -b | grep Discharging)" = "" ] && systemctl suspend' \
+    before-sleep 'playerctl pause' \
+    before-sleep 'exec $locking & sleep $sleep_delay' \
+    after-resume 'swaymsg "output * dpms on" && brightnessctl -r'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
