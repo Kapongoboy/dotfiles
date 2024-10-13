@@ -11,7 +11,7 @@ curl https://get.volta.sh | bash
 curl -sS https://starship.rs/install.sh | sh
 
 # some needed packages
-# sudo dnf install gitui fish git make cmake ninja python-pip ripgrep fzf fd lsd bat tmux gcc clang bear 
+sudo dnf install gitui fish git make cmake ninja-build python-pip ripgrep fzf fd-find lsd bat tmux gcc clang bear
 
 # copy fish to config
 cp -r fish ~/.config/
