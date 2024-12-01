@@ -41,7 +41,7 @@ set PATH /usr/local/go/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
 
 starship init fish | source
-
+zoxide init fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
