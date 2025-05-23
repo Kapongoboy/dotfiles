@@ -126,15 +126,22 @@ set $right l
 # Defaults
 
 ## terminal emulator
-set $term "flatpak run org.wezfurlong.wezterm"
+# set $term "flatpak run org.wezfurlong.wezterm"
 # set $term foot
 # set $term kitty
-# set $term alacritty
+set $term alacritty
 
 ## Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -c ~/.config/wofi/config -I
+# Rofi menu configuration
+set $menu rofi -show drun -disable-history -show-icons
+bindsym $mod+d exec $menu
+bindsym $mod+c exec rofi -modi emoji -show emoji
+bindsym $mod+p exec rofi -show p -modi p:rofi-power-menu
+
+# Remove this line since rofi handles floating automatically
+# for_window [window_type="menu"] floating enable
 
 # Behavior
 focus_follows_mouse yes
@@ -184,9 +191,6 @@ bindsym $mod+Return exec $term
 
 # Kill focused window
 bindsym $mod+Shift+q kill
-
-# Start your launcher
-bindsym $mod+d exec $menu
 
 # Dismiss notifications
 bindsym Control+space exec makoctl dismiss
@@ -341,7 +345,6 @@ set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-sourc
     bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
     bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
     
-# bindsym --locked $mod+d exec sh -c "notify-send 'Do Not Disturb' 'Turning on Do Not Disturb Mode'; sleep 2; makoctl set-mode do-not-disturb"
 # bindsym --locked $mod+Shift+d exec sh -c "makoctl set-mode default ; notify-send 'Do Not Disturb' 'Do Not Disturb Mode disabled'"
 
 # Status Bar:
