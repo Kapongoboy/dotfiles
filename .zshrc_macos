@@ -1,0 +1,21 @@
+nf() {
+    local file=$(fzf)
+    if [[ -n "$file" ]]; then
+        nvim "$file"
+    fi
+}
+
+bindkey -v
+
+alias q="exit"
+alias re="z ~/Documents/repos/"
+alias bat="cat"
+
+export PATH="$HOME/.bun/bin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+source <(fzf --zsh)
+
+. "$HOME/.cargo/env"

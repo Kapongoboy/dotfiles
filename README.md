@@ -1,33 +1,26 @@
 # Plamedi's dotfiles
 
-## NOTE the main branch is behind all the others, and includes deprecated parts, most significantly the neovim config. the 2024 branch is recommended for now, before a merge is completed and the old configs are put on a legacy branch
+## notes
 
-- Before sourcing the .zshenv file, place the zsh folder into your $HOME/.config/ path. 
+To expedite new setups, I've created a setup.sh and dev\_env.sh
+The setup should be run first. These do not assume a swaywm environment
+and therefore do not setup for that.
 
-- For the terminals, I use [Hack Nerd Font Mono](https://www.nerdfonts.com/font-downloads).
+Currently the setup assumes dnf as the package manager,
+and will be adjusted in the future to include conditionals that check for the system package manager.
 
-- For tmux copy both the .tmux.conf file and .tmux folder to your $HOME root dir.
-After, install the tmux package manager by running:
+Besides that please read what is in the scripts first before running them, and decide for yourself what you want to keep or change.
 
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
+Everything here is very experimental and may rely on manually building utilities
+in order to work, approach with caution.
 
-After that create a tmux session with `tmux` on the command line. Then press
-the prefix key, `Ctrl`+`B` for default, followed by the Capital letter I. This
-should bring up the package manager installer and the tmux status line should
-change to the catppuccin theme.
+## Setup
 
-- In case the above doesn't work, enter the following inside a tmux session:
+![neovim](./images/config-now.png)
 
-```bash
-tmux source-file ~/.tmux.conf
-```
+On gnome the aesthetics are pretty toned down, with only neovim and alacritty being super showey.
+One prime example is the tmux status line is practically stock now with a color change.
+The screenshot above, shows the most bombastic case with swaywm running waybar,
+which adds a splash of color to what is otherwise a pretty chill setup.
 
-Then attempt the prefix capital I combo from before.
-
-## Neovim 
-![neovim screenshot](./images/neovim.png)
-
-## Tmux session in alacritty
-![tmux alacritty](./images/tmux_alacritty.png)
+Anyway goodluck and thank you.

@@ -1,0 +1,158 @@
+/**
+ * NeoSolar rofi theme
+ *
+ * Color palette imported from custom TOML configuration
+ *
+ */
+* {
+    // Primary colors
+    neo-bg: #041419;
+    neo-fg: #697A82;
+    
+    // Normal colors
+    neo-black: #163541;
+    neo-red: #CB4239;
+    neo-green: #89982E;
+    neo-yellow: #AE8B2D;
+    neo-blue: #4689CC;
+    neo-magenta: #C34480;
+    neo-cyan: #519F98;
+    neo-white: #FCF6E5;
+    
+    // Bright colors
+    neo-bright-black: #A1ACAD;
+    neo-bright-red: #F1A19E;
+    neo-bright-green: #DEFEB5;
+    neo-bright-yellow: #FBEAA3;
+    neo-bright-blue: #B4DBFC;
+    neo-bright-magenta: #EE7FB7;
+    neo-bright-cyan: #C8FDF9;
+    neo-bright-white: #FFFFFF;
+    
+    // Theme colors
+    red: @neo-red;
+    green: @neo-green;
+    yellow: @neo-yellow;
+    blue: @neo-blue;
+    magenta: @neo-magenta;
+    cyan: @neo-cyan;
+    reddark: #A03530;
+    yellowdark: #8B6E24;
+    
+    foreground: @neo-fg;
+    background-color: transparent;
+    
+    highlight: underline bold #C8FDF9;
+    transparent: rgba(4,20,25,0);
+}
+
+window {
+    location: center;
+    anchor: center;
+    border-radius: 8px;
+    height: 400px;
+    width: 550px;
+    background-color: @transparent;
+    spacing: 0;
+    children: [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    padding: 10px;
+    border: 0px 2px 2px 2px;
+    border-color: @neo-bg;
+    background-color: @neo-bright-black;
+}
+
+inputbar {
+    color: @neo-white;
+    padding: 10px;
+    background-color: @neo-bg;
+    border-color: @neo-bg;
+    border: 1px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color: inherit;
+}
+
+prompt {
+    margin: 0px 1em 0em 0em;
+}
+
+listview {
+    padding: 8px;
+    border-radius: 0px 0px 10px 10px;
+    border: 2px 2px 2px 2px;
+    border-color: @neo-bg;
+    background-color: @neo-bg;
+    dynamic: false;
+}
+
+element {
+    padding: 5px;
+    vertical-align: 0.5;
+    border-radius: 10px;
+    color: @foreground;
+    text-color: @neo-white;
+    background-color: @neo-black;
+}
+
+element.normal.active {
+    background-color: @yellow;
+    text-color: @neo-bg;
+}
+
+element.normal.urgent {
+    background-color: @reddark;
+    text-color: @neo-white;
+}
+
+element.selected.normal {
+    background-color: @neo-bright-black;
+    text-color: @neo-bg;
+}
+
+element.selected.active {
+    background-color: @yellowdark;
+    text-color: @neo-white;
+}
+
+element.selected.urgent {
+    background-color: @red;
+    text-color: @neo-white;
+}
+
+element.alternate.normal {
+    background-color: @transparent;
+}
+
+element-text, element-icon {
+    size: 3ch;
+    margin: 0 10 0 0;
+    vertical-align: 0.5;
+    background-color: inherit;
+    text-color: @neo-white;
+}
+
+button {
+    padding: 6px;
+    color: @foreground;
+    horizontal-align: 0.5;
+    border: 2px 0px 2px 2px;
+    border-radius: 10px;
+    border-color: @foreground;
+}
+
+button.selected.normal {
+    border: 2px 0px 2px 2px;
+    border-color: @foreground;
+}

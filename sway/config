@@ -4,13 +4,30 @@
 
 # Start up stuff
 # Auth with polkit-gnome:
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec lxpolkit
 
 # Desktop notifications
 exec mako
 
+# wlsunset
+exec wlsunset -l 25.7 -L 28.2
+
 # Network Applet
 exec nm-applet --indicator
+
+# Autotiling for sway
+exec /home/plamedi/Repos/pocket/autotiling-rs/target/release/autotiling-rs
+
+# swayest
+exec /home/plamedi/Repos/pocket/swayest_workstyle/target/release/sworkstyle &> /tmp/sworkstyle.log
+
+# explicit setting of bg
+exec swaybg -i ~/Pictures/the-goat.jpg -m fill
+
+# swaymsg 'output * bg $background fill'
+
+# flashfocus
+# exec flashfocus
 
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -19,74 +36,70 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 
 # Style
-font pango:hack Nerd Font 12px 
-default_border pixel 1
+font pango:Cantarell 12px 
+default_border pixel 2
 smart_borders on
 gaps outer 1
 gaps inner 1
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border
-client.focused          #c49ec4 #262626 #f0f0f0 #9ec3c4   #c49ec4
-client.focused_inactive #c49ec4 #262626 #f0f0f0 #9ec3c4   #c49ec4
-client.unfocused        #c49ec4 #0f0f0f #f0f0f0 #9ec3c4   #4c4c4c
-client.urgent           #c49ec4 #c49ec4 #0f0f0f #9ec3c4   #c49ec4
+client.focused          #2980b9 #262626 #f0f0f0 #9ec3c4   #2980b9
+client.focused_inactive #CCCFFB #262626 #f0f0f0 #9ec3c4   #CCCFFB
+client.unfocused        #90b1b1 #0f0f0f #f0f0f0 #9ec3c4   #90b1b1
+client.urgent           #EE7FB7 #c49ec4 #0f0f0f #9ec3c4   #EE7FB7
 
 # Import GTK settings
-exec_always ~/.config/sway/scripts/import-gsettings
+# exec_always ~/.config/sway/scripts/import-gsettings
 
 # Assign workspaces
-assign [app_id="firefox"] 2
+assign [app_id="firefox"] number 2
 for_window [app_id="firefox"] focus
 
-assign [class="firefox"] 2
+assign [class="firefox"] number 2
 for_window [class="firefox"] focus
 
-assign [app_id=thunar] 3
-for_window [app_id=thunar] focus
+assign [app_id=nautilus] number 3
+for_window [app_id=nautilus] focus
 
-assign [class="Telegram"] 4
-for_window [class="Telegram"] focus
+assign [class="Signal"] number 4
+for_window [class="Signal"] focus
 
 
 for_window [app_id="xed"] focus
 
 
-# set floating (nontiling)for apps needing it:
-for_window [class="Yad" instance="yad"] floating enable
-for_window [app_id="yad"] floating enable
-for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
+# don't show gaps if there's only one window on the desktop
+smart_gaps on
 
-# set floating (nontiling) for special apps:
-for_window [class="Xsane" instance="xsane"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
-for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [app_id="pamac-manager"] floating enable, resize set width 80 ppt height 70 ppt
-for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
-
-# set floating for window roles
+# set floating mode for generated windows
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] resize set 800 600
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [window_role="About"] floating enable
-for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [title="Picture in picture"] floating enable, sticky enable
-for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
-for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+
+# set floating mode for specific applications
+for_window [instance="lxappearance"] floating enable
+for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable
+for_window [app_id="thunderbird" title=".*Reminder"] floating enable
+for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
+for_window [app_id="" title="Picture in picture"] floating enable, sticky enable
+for_window [app_id="" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [instance="around"] floating enable, sticky enable
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+for_window [title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
+for_window [app_id="" title=".* is sharing your screen."] floating enable
+for_window [title="^wlay$"] floating enable
+for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
 
 # Inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
-
 
 # Keybindings
 
@@ -113,18 +126,22 @@ set $right l
 # Defaults
 
 ## terminal emulator
+# set $term "flatpak run org.wezfurlong.wezterm"
+# set $term foot
+# set $term kitty
 set $term alacritty
 
 ## Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -c ~/.config/wofi/config -I
+# Rofi menu configuration
+set $menu rofi -show drun -disable-history -show-icons
+bindsym $mod+d exec $menu
+bindsym $mod+c exec rofi -modi emoji -show emoji
+bindsym $mod+p exec rofi -show p -modi p:rofi-power-menu
 
-## Output configuration
-# Default wallpaper 
-# output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
-# can replace $Home with your user specific home directory
-output * bg /home/plamedi/Pictures/wallpapers/5371426.jpg fill
+# Remove this line since rofi handles floating automatically
+# for_window [window_type="menu"] floating enable
 
 # Behavior
 focus_follows_mouse yes
@@ -135,16 +152,31 @@ focus_follows_mouse yes
 #
 
 ### Idle configuration
-exec swayidle -w\
-    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
-    timeout 770 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -C ~/.config/swaylock/config'
+# exec swayidle -w\
+#     timeout 770 'swaylock -f -C ~/.config/swaylock/config'\
+#     timeout 1070 'swaymsg "output * power off"' \
+#     resume 'swaymsg "output * power on"' \
+#     before-sleep 'swaylock -C ~/.config/swaylock/config'
 
-# exec swayidle -w \
-# timeout 30 'swaylock -f' \
-# timeout 10 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \ resume 'swaymsg "output * dpms on"' \
-# before-sleep 'swaylock -f'
+set $locking swaylock -f -C ~/.config/swaylock/config
+set $idle_timeout 240
+set $locking_timeout 300
+set $screen_timeout 600
+set $screen_timeout_bat 900
+set $screen_time_ac 3600
+set $sleep_delay 2
+
+exec swayidle -w \
+    timeout $idle_timeout 'brightnessctl -s && brightnessctl set 10' \
+    resume 'brightnessctl -r' \
+    timeout $locking_timeout 'exec $locking' \
+    timeout $screen_timeout  'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    timeout $sleep_timeout_bat '[ "$(acpi -b | grep Discharging)" != "" ] && systemctl suspend' \
+    timeout $sleep_timeout_ac '[ "$(acpi -b | grep Discharging)" = "" ] && systemctl suspend' \
+    before-sleep 'playerctl pause' \
+    before-sleep 'exec $locking & sleep $sleep_delay' \
+    after-resume 'swaymsg "output * dpms on" && brightnessctl -r'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -158,10 +190,7 @@ exec swayidle -w\
 bindsym $mod+Return exec $term
 
 # Kill focused window
-bindsym $mod+q kill
-
-# Start your launcher
-bindsym $mod+d exec $menu
+bindsym $mod+Shift+q kill
 
 # Dismiss notifications
 bindsym Control+space exec makoctl dismiss
@@ -178,14 +207,14 @@ bindsym Shift+print exec grim -g "$(slurp)" - | swappy -f -
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
-bindsym $mod+e nautilus
-bindsym $mod+n exec thunar
+bindsym $mod+e exec nautilus
+bindsym $mod+n exec nautilus
 bindsym $mod+o exec firefox
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t custom -m 'Do you wish to fully reload your Sway session?' -b 'Yes' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you wish to fully reload your Sway session?' -b 'Yes' 'swaymsg exit'
 # Turn the system off
-bindsym $mod+Shift+p exec swaynag -t custom -m 'What action would you like to perform?' -b 'Shutdown' 'poweroff' -b 'Restart' 'poweroff --reboot'
+bindsym $mod+Shift+p exec swaynag -t warning -m 'What action would you like to perform?' -b 'Shutdown' 'poweroff' -b 'Restart' 'poweroff --reboot'
 #
 # Moving around:
 #
@@ -200,15 +229,15 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-#
+
 # Workspaces:
-#
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
+
 bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
@@ -220,6 +249,7 @@ bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
+
 bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
@@ -291,20 +321,8 @@ set $volume_mute $(pactl set-sink-mute @DEFAULT_SINK@ toggle && pactl get-sink-m
 set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@ | sed -En "/no/ s/.*/$($source_volume)/p; /yes/ s/.*/0/p")
 
 ## Special keys
-# bindsym --locked XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 45 false ; pactl set-sink-volume 45 +5%" 
-#
-# bindsym --locked XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 45 false ; pactl set-sink-volume 45 -5%"
-#
-# bindsym --locked XF86AudioMute exec pactl set-sink-mute 45 toggle && notify-send " Mute" "Mic mute toggled"
-# bindsym XF86MonBrightnessUp exec light -A 10 && notify-send "󰃞 Light" "Brightness: $(light)%" --hint="int:value:$(light)"
-# bindsym XF86MonBrightnessDown exec light -U 10 && notify-send "󰃞 Light" "Brightness: $(light)%" --hint="int:value:$(light)"
-# bindsym --locked XF86AudioPlay exec mpc toggle
-# bindsym --locked XF86AudioNext exec mpc next
-# bindsym --locked XF86AudioPrev exec mpc prev
 
-#
 # Volume
-#
     # Control volume trough pamixer
     # bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 2
     # bindsym --locked XF86AudioLowerVolume exec pamixer -ud 2
@@ -314,9 +332,9 @@ set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-sourc
     bindsym --locked XF86AudioRaiseVolume exec $volume_up
     bindsym --locked XF86AudioLowerVolume exec $volume_down
     bindsym --locked XF86AudioMute exec $volume_mute
-#
+
 # Player
-#
+
     bindsym XF86AudioPlay exec playerctl play
     bindsym XF86AudioPause exec playerctl pause
     bindsym XF86AudioNext exec playerctl next
@@ -327,21 +345,12 @@ set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-sourc
     bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
     bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
     
-# bindsym --locked $mod+d exec sh -c "notify-send 'Do Not Disturb' 'Turning on Do Not Disturb Mode'; sleep 2; makoctl set-mode do-not-disturb"
 # bindsym --locked $mod+Shift+d exec sh -c "makoctl set-mode default ; notify-send 'Do Not Disturb' 'Do Not Disturb Mode disabled'"
 
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
-    # swaybar_command swaybar
-    # status_command i3status
-    # colors {
-    #     background #000000
-    #   }
-    # }
 }
-
-# exec ~/.config/polybar/launch.sh --cuts
 
 include /etc/sway/config.d/*

@@ -1,0 +1,9 @@
+font=Hack Nerd Font 12
+background-color=#041419
+text-color=#E65E2D
+width=300
+padding=10
+border-size=3
+border-color=#CCCFFB
+border-radius=4
+progress-color=over #72EBDF

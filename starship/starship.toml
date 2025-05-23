@@ -10,7 +10,7 @@
 #  Just delete de icons you can't see an use icons from nerd fonts.
 
 format = """
-[🌟♕ $username$hostname ]\
+[ 🌪 $username$hostname ]\
 (bold bg:black fg:white)\
 []\
 (bold bg:purple fg:black)\
@@ -82,10 +82,9 @@ $fill\
 $singularity\
 $kubernetes\
 $directory\
-🌩 
+$status\
+$character
 """
-# $status\
-#$character
 
 [fill]
 symbol = " "
@@ -121,7 +120,7 @@ format = "[$time]($style)"
 style = "bg:white fg:black"
 
 [battery]
-full_symbol = "󱈑"
+full_symbol = "🔋"
 charging_symbol = ""
 unknown_symbol = ""
 discharging_symbol = ""
@@ -134,26 +133,26 @@ style = "bg:yellow fg:black"
 
 [[battery.display]]
 threshold = 10
-discharging_symbol = "󱊡"
+discharging_symbol = "ﮊ"
 style = "bg:yellow fg:black"
 
 [[battery.display]]
 threshold = 30
-discharging_symbol = "󱊢"
+discharging_symbol = ""
 style = "bg:yellow fg:black"
 
 [[battery.display]]
 threshold = 50
-discharging_symbol = "󱊢"
+discharging_symbol = ""
 style = "bg:yellow fg:black"
 
 [[battery.display]]
 threshold = 100
-discharging_symbol = "󱊣"
+discharging_symbol = ""
 style = "bg:yellow fg:black"
 
 [directory]
-read_only = " 📖"
+read_only = " 🔒"
 truncation_length = 3
 truncation_symbol = "./"
 style = "bold bg:none fg:yellow"
@@ -166,6 +165,6 @@ symbol = '✗'
 disabled = true
 
 [character]
-success_symbol = "[  ](bold white)"
-error_symbol = "[  ](bold red)"
-vicmd_symbol = "[  ](bold yellow)"
+success_symbol = "[⟢ ](bold white)"
+error_symbol = "[⧯](bold red)"
+vicmd_symbol = "[🗝](bold yellow)"
