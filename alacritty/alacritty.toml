@@ -5,19 +5,19 @@ TERM = "alacritty"
 size = 11.0
 
 [font.bold]
-family = "IBM Plex Mono"
+family = "FiraMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "IBM Plex Mono"
+family = "FiraMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "IBM Plex Mono"
+family = "FiraMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "IBM Plex Mono"
+family = "FiraMono Nerd Font"
 style = "Regular"
 
 [terminal.shell]
