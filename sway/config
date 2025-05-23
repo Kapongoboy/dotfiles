@@ -4,7 +4,7 @@
 
 # Start up stuff
 # Auth with polkit-gnome:
-exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec lxpolkit
 
 # Desktop notifications
 exec mako
@@ -22,17 +22,17 @@ exec /home/plamedi/Repos/pocket/autotiling-rs/target/release/autotiling-rs
 exec /home/plamedi/Repos/pocket/swayest_workstyle/target/release/sworkstyle &> /tmp/sworkstyle.log
 
 # explicit setting of bg
-exec swaybg -i ~/Pictures/i-see-you.jpg -m fill
+exec swaybg -i ~/Pictures/the-goat.jpg -m fill
 
 # swaymsg 'output * bg $background fill'
 
 # flashfocus
-exec flashfocus
+# exec flashfocus
 
 # GTK3 applications take a long time to start
-# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# exec hash dbus-update-activation-environment 2>/dev/null && \
-     # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 
 # Style
@@ -59,43 +59,14 @@ for_window [app_id="firefox"] focus
 assign [class="firefox"] number 2
 for_window [class="firefox"] focus
 
-assign [app_id=thunar] number 3
-for_window [app_id=thunar] focus
+assign [app_id=nautilus] number 3
+for_window [app_id=nautilus] focus
 
-assign [class="Telegram"] number 4
-for_window [class="Telegram"] focus
+assign [class="Signal"] number 4
+for_window [class="Signal"] focus
 
 
 for_window [app_id="xed"] focus
-
-
-# set floating (nontiling)for apps needing it:
-# for_window [class="Yad" instance="yad"] floating enable
-# for_window [app_id="yad"] floating enable
-# set floating (nontiling) for special apps:
-# for_window [class="Xsane" instance="xsane"] floating enable
-# for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
-# for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-# for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-# for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
-
-# set floating for window roles
-# for_window [window_role="pop-up"] floating enable
-# for_window [window_role="bubble"] floating enable
-# for_window [window_role="task_dialog"] floating enable
-# for_window [window_role="Preferences"] floating enable
-# for_window [window_type="dialog"] floating enable
-# for_window [window_type="menu"] floating enable
-# for_window [window_role="About"] floating enable
-# for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-# for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-# for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-# for_window [title="Picture in picture"] floating enable, sticky enable
-# for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
-# for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
-# for_window [app_id="xsensors"] floating enable
-# for_window [title="Save File"] floating enable
-# for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
 
 # don't show gaps if there's only one window on the desktop
@@ -127,8 +98,8 @@ for_window [title="^wlay$"] floating enable
 for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
 
 # Inhibit idle
-# for_window [app_id="firefox"] inhibit_idle fullscreen
-# for_window [app_id="Chromium"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="Chromium"] inhibit_idle fullscreen
 
 # Keybindings
 
@@ -155,22 +126,15 @@ set $right l
 # Defaults
 
 ## terminal emulator
-# set $term "flatpak run org.wezfurlong.wezterm"
+set $term "flatpak run org.wezfurlong.wezterm"
 # set $term foot
 # set $term kitty
-set $term alacritty
+# set $term alacritty
 
 ## Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu wofi -c ~/.config/wofi/config -I
-
-## Output configuration
-# Default wallpaper 
-# output * bg /home/loki/pictures/wallpapers/mountain-rocks-at-sea.jpg fill
-# can replace $Home with your user specific home directory
-# output * bg /home/plamedi/Pictures/so-blue.jpg fill
-exec way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1
 
 # Behavior
 focus_follows_mouse yes
@@ -240,7 +204,7 @@ bindsym Shift+print exec grim -g "$(slurp)" - | swappy -f -
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 bindsym $mod+e exec nautilus
-bindsym $mod+n exec thunar
+bindsym $mod+n exec nautilus
 bindsym $mod+o exec firefox
 
 # Exit sway (logs you out of your Wayland session)
@@ -261,9 +225,8 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-#
+
 # Workspaces:
-# swapped for corne convenience
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -354,9 +317,8 @@ set $volume_mute $(pactl set-sink-mute @DEFAULT_SINK@ toggle && pactl get-sink-m
 set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@ | sed -En "/no/ s/.*/$($source_volume)/p; /yes/ s/.*/0/p")
 
 ## Special keys
-#
+
 # Volume
-#
     # Control volume trough pamixer
     # bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 2
     # bindsym --locked XF86AudioLowerVolume exec pamixer -ud 2
@@ -366,9 +328,9 @@ set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-sourc
     bindsym --locked XF86AudioRaiseVolume exec $volume_up
     bindsym --locked XF86AudioLowerVolume exec $volume_down
     bindsym --locked XF86AudioMute exec $volume_mute
-#
+
 # Player
-#
+
     bindsym XF86AudioPlay exec playerctl play
     bindsym XF86AudioPause exec playerctl pause
     bindsym XF86AudioNext exec playerctl next
@@ -386,14 +348,6 @@ set $mic_mute $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-sourc
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
-    # swaybar_command swaybar
-    # status_command i3status
-    # colors {
-    #     background #000000
-    #   }
-    # }
 }
-
-# exec ~/.config/polybar/launch.sh --cuts
 
 include /etc/sway/config.d/*
