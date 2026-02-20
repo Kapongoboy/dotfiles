@@ -1,36 +1,39 @@
 return {
-	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
-	{ "savq/melange-nvim" },
-	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "maxmx03/solarized.nvim" },
-	{ "luisiacc/gruvbox-baby" },
-  { "tjdevries/colorbuddy.nvim", },
-  {"sainnhe/gruvbox-material"},
-  {"rebelot/kanagawa.nvim"},
-  {"shaunsingh/nord.nvim"},
-  {"marko-cerovac/material.nvim"},
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      styles = {
+        comments = { italic = false },
+      },
+    },
   },
-	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-	{
-		"olivercederborg/poimandres.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("poimandres").setup({
-				-- leave this setup function empty for default config
-				-- or refer to the configuration section
-				-- for configuration options
-			})
-		end,
-	},
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      terminal_colors = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "dark",
+        floats = "dark",
+      },
+    },
+    config = function(_, opts)
+      require("solarized-osaka").setup(opts)
+      vim.cmd.colorscheme("solarized-osaka")
+    end,
+  },
+  { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  { "savq/melange-nvim" },
+  { "rose-pine/neovim", name = "rose-pine" },
+  { "sainnhe/gruvbox-material" },
+  { "rebelot/kanagawa.nvim" },
+  { "marko-cerovac/material.nvim" },
 }
