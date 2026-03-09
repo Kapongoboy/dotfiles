@@ -4,20 +4,12 @@ return {
   cmd = { "ConformInfo" },
   keys = {
     {
-      "<leader>f",
+      "<leader>mp",
       function()
         require("conform").format({ async = true, lsp_format = "fallback" })
       end,
       mode = "",
-      desc = "[F]ormat buffer",
-    },
-    {
-      "<leader>fm",
-      function()
-        require("conform").format({ async = true, lsp_format = "fallback" })
-      end,
-      mode = "",
-      desc = "[F]or[m]at buffer",
+      desc = "[M]ake [P]retty (Format buffer)",
     },
   },
   opts = {
